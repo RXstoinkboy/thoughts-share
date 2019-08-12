@@ -30,7 +30,10 @@ app.use(express.static('public'));
 
 // RUN SERVER
 app.get('/', (req,res)=>{
-  res.status(200).json('Hello World!');
+  res.status(200).render('index', {title: 'the app :)'});
+})
+app.get('/error', (req,res)=>{
+  res.status(200).render('error', {message: 'sorry there was an error'});
 })
 
 app.listen(port, (req,res)=>{
